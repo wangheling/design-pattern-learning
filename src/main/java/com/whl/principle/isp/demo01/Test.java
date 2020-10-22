@@ -1,4 +1,4 @@
-package com.whl.principle.interfacesegregation.demo01;
+package com.whl.principle.isp.demo01;
 
 /**
  * @Desc：

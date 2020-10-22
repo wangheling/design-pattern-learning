@@ -1,4 +1,4 @@
-package com.whl.principle.openclose.demo01;
+package com.whl.principle.ocp.demo01;
 
 /**
  * @Desc：
