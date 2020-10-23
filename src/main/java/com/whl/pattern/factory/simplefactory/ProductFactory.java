@@ -15,6 +15,7 @@ public class ProductFactory {
         if ("b".equalsIgnoreCase(productName)) {
             return new BProduct();
         }
+        // 每增加一个产品，都需要在这里新增代码，不符合开闭原则
         return null;
 
     }
