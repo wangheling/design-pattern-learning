@@ -1,4 +1,4 @@
-package com.whl.pattern.factory.factorymethod;
+package com.whl.pattern.factory.factorymethod.demo01;
 
 /**
  * @Desc：

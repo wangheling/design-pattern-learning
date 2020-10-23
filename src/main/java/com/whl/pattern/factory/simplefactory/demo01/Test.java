@@ -1,4 +1,4 @@
-package com.whl.pattern.factory.simplefactory;
+package com.whl.pattern.factory.simplefactory.demo01;
 
 /**
  * @Desc：简单工厂
