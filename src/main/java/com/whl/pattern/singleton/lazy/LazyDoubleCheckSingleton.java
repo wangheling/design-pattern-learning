@@ -3,14 +3,19 @@ package com.whl.pattern.singleton.lazy;
 /**
  * @Author: heling
  * @Date: 2020/10/24 17:56
- * @Description: 懒汉式单例
+ * @Description: 懒汉式单例：双重检查锁
  */
-public class LazySingleton {
+public class LazyDoubleCheckSingleton {
 
     // volatile保证可见性
-    private static volatile LazySingleton instance;
+    private static volatile LazyDoubleCheckSingleton instance;
 
-    private LazySingleton() {
+    private LazyDoubleCheckSingleton() {
+
+        //防止反射使用构造器破会单例
+        if (null != instance) {
+            throw new RuntimeException("不允许非法访问");
+        }
 
     }
 
@@ -21,12 +26,12 @@ public class LazySingleton {
 //        return instance;
 //    }
 
-    public static LazySingleton getInstance() {
+    public static LazyDoubleCheckSingleton getInstance() {
         // 双重检查锁
         if (null == instance) {
-            synchronized (LazySingleton.class) {
+            synchronized (LazyDoubleCheckSingleton.class) {
                 if (null == instance) {
-                    instance = new LazySingleton();
+                    instance = new LazyDoubleCheckSingleton();
                 }
             }
         }
@@ -35,8 +40,8 @@ public class LazySingleton {
 
 
     public static void main(String[] args) {
-        System.out.println(LazySingleton.getInstance());
-        System.out.println(LazySingleton.getInstance());
+        System.out.println(LazyDoubleCheckSingleton.getInstance());
+        System.out.println(LazyDoubleCheckSingleton.getInstance());
 //        com.whl.pattern.singleton.lazy.LazySingleton@1540e19d
 //        com.whl.pattern.singleton.lazy.LazySingleton@1540e19d
     }
