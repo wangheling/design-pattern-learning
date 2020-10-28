@@ -2,6 +2,7 @@ package com.whl.pattern.proxy.dynamicproxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 /**
  * @Desc：
@@ -10,10 +11,16 @@ import java.lang.reflect.Method;
  */
 public class DynamicProxySubject implements InvocationHandler {
 
-    private Object target;
+    private Subject target;
 
-    public DynamicProxySubject(Object target) {
+//    public DynamicProxySubject(Object target) {
+//        this.target = target;
+//    }
+
+    public Subject getProxy(Subject target) {
         this.target = target;
+        Class<? extends Subject> clazz = target.getClass();
+        return (Subject) Proxy.newProxyInstance(clazz.getClassLoader(), clazz.getInterfaces(), this);
     }
 
     @Override
