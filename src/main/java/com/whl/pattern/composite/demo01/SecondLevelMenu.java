@@ -18,17 +18,17 @@ public class SecondLevelMenu implements Menu {
 
     @Override
     public void add(Menu menu) {
-
+        throw new UnsupportedOperationException("二级菜单不支持添加子菜单");
     }
 
     @Override
     public void delete(Menu menu) {
-
+        throw new UnsupportedOperationException("二级菜单不支持自删，请从一级菜单处删除");
     }
 
     @Override
     public List<Menu> getChildMenu() {
-        return null;
+        throw new UnsupportedOperationException("二级菜单不支持获取子菜单");
     }
 
     @Override
