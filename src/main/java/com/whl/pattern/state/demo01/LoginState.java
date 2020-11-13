@@ -1,19 +1,18 @@
 package com.whl.pattern.state.demo01;
 
 /**
- * @Desc：
+ * @Desc：登录状态
  * @Author: heling
- * @Date: 2020/11/12 16:08
+ * @Date: 2020/11/12 16:09
  */
-public abstract class LoginState {
-
-    protected AppContext appContext;
-
-    public void setContext(AppContext appContext) {
-        this.appContext = appContext;
+public class LoginState extends UserState {
+    @Override
+    public void comment(String title, String content) {
+        System.out.println("评论文章" + title + "内容为：" + content);
     }
 
-    public abstract void comment(String title, String content);
-
-    public abstract void like(String title);
+    @Override
+    public void like(String title) {
+        System.out.println("点赞文章" + title);
+    }
 }

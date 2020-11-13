@@ -7,18 +7,18 @@ package com.whl.pattern.state.demo01;
  */
 public class AppContext {
 
-    public static final LoginState UNLOGIN = new UnLoginState();
-    public static final LoginState LOGINED = new LoginedState();
+    public static final UserState UNLOGIN = new UnLoginState();
+    public static final UserState LOGINED = new LoginState();
 
     {
         UNLOGIN.setContext(this);
         LOGINED.setContext(this);
     }
 
-    private LoginState currentState = UNLOGIN;
+    private UserState currentState = UNLOGIN;
 
-    public void setLoginState(LoginState loginState) {
-        this.currentState = loginState;
+    public void setLoginState(UserState userState) {
+        this.currentState = userState;
     }
 
     public void comment(String title, String content) {

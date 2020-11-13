@@ -5,7 +5,7 @@ package com.whl.pattern.state.demo01;
  * @Author: heling
  * @Date: 2020/11/12 16:09
  */
-public class UnLoginState extends LoginState {
+public class UnLoginState extends UserState {
     @Override
     public void comment(String title, String content) {
         switchToLogin();
